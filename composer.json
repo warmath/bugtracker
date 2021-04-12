@@ -1,0 +1,8 @@
+{
+    "require":{
+        "doctrine/orm":"^2.8"
+    },
+    "autoload": {
+        "psr-4": {"Bugtracker\\":"src/model/"}
+    }
+}

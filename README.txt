@@ -1,0 +1,2 @@
+Um projeto baseado no exemplo GettingStarted do Doctrine/ORM com adaptações.
+A idéia central é atualizar o projeto, implementar melhorias e extensões ao domínio do problema e utilizar como base para outro projeto Front End.
