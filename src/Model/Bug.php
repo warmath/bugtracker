@@ -4,6 +4,9 @@
 namespace Bugtracker\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Bugtracker\Model\User;
 
 /**
  * @ORM\Entity
@@ -36,6 +39,61 @@ class Bug
      * @var string
      */
     protected string $status;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Product")
+     */
+    protected ArrayCollection $products;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="reportedBugs")
+     */
+    protected User $reporter;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="assignedBugs")
+     */
+    protected User $engineer;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
+    public function assignToProduct(Product $product):self
+    {
+        $this->products[] = $product;
+        return $this;
+    }
+
+    public function getProducts():Collection
+    {
+        return $this->products;
+    }
+
+    public function setEngineer(User $engineer):self
+    {
+        $engineer->assignedToBug($this);
+        $this->engineer = $engineer;
+        return $this;
+    }
+
+    public function setReporter(User $reporter):self
+    {
+        $reporter->addReportedBug($this);
+        $this->reporter = $reporter;
+        return $this;
+    }
+
+    public function getEngineer():User
+    {
+        return $this->engineer;
+    }
+
+    public function getReporter():User
+    {
+        return $this->reporter;
+    }
 
     public function getId():int
     {
