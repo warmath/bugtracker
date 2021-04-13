@@ -3,6 +3,6 @@
         "doctrine/orm":"^2.8"
     },
     "autoload": {
-        "psr-4": {"Bugtracker\\":"src/model/"}
+        "psr-4": {"Bugtracker\\":"src/"}
     }
 }

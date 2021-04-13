@@ -147,13 +147,14 @@ class ComposerStaticInit10e629b6ed609886db42a1507fa9d77b
         ),
         'Bugtracker\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/model',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'Bugtracker\\Model\\Product' => __DIR__ . '/../..' . '/src/model/Product.php',
+        'Bugtracker\\Model\\Bug' => __DIR__ . '/../..' . '/src/Model/Bug.php',
+        'Bugtracker\\Model\\Product' => __DIR__ . '/../..' . '/src/Model/Product.php',
         'Doctrine\\Common\\Annotations\\Annotation' => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation.php',
         'Doctrine\\Common\\Annotations\\AnnotationException' => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php',
         'Doctrine\\Common\\Annotations\\AnnotationReader' => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php',
