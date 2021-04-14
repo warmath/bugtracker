@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Bugtracker\Model\User;
+use \DateTime;
 
 /**
  * @ORM\Entity
@@ -43,7 +44,7 @@ class Bug
     /**
      * @ORM\ManyToMany(targetEntity="Product")
      */
-    protected ArrayCollection $products;
+    protected Collection $products;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="reportedBugs")

@@ -3,6 +3,8 @@
 
 require_once "../bugtracker/bootstrap.php";
 
+use Bugtracker\Model\Product;
+
 $id = $argv[1];
 $newName = $argv[2];
 
