@@ -1,8 +1,13 @@
 <?php
 // commands/bugs-list.php
+
 require_once "../bugtracker/bootstrap.php";
 
 use Bugtracker\Model\Bug;
+use Doctrine\DBAL\Logging\DebugStack;
+
+$debugStack = new DebugStack();
+$entityManager->getConfiguration()->setSQLLogger($debugStack);
 
 $dql = 'SELECT b, e, r FROM ' . Bug::class . ' b JOIN b.engineer e JOIN b.reporter r ORDER BY b.created DESC';
 
@@ -20,4 +25,9 @@ foreach ($bugs as $bug) {
     echo "\n";
 }
 
-echo Bug::class;
+print_r($debugStack);
+
+/*
+Uma consulta pontual com muitos relacionamentos pode ser mais interessante com 
+DQL em contraponto ao Repository.
+*/
